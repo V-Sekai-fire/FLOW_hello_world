@@ -14,5 +14,4 @@ argo submit -n argo --watch https://raw.githubusercontent.com/argoproj/argo-work
 kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/install-validating-webhook.yaml
 kubectl create ns argo-events
 kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/eventbus/native.yaml
-
 ```
