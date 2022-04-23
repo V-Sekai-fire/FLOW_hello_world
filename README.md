@@ -17,5 +17,6 @@ kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-
 kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/sensors/webhook.yaml
 kubectl -n argo port-forward deployment/argo-server 12000:12000
 kubectl -n argo-events edit service webhook-eventsource-svc # change to nodeport
-# Go to Ranche Desktop and forward 12000 port
+kubectl -n argo-events port-forward service/webhook-eventsource-svc 12000:12000
+curl localhost:12000/hello
 ```
