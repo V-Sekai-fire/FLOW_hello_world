@@ -11,5 +11,4 @@ kubectl -n argo port-forward deployment/argo-server 2746:2746
 scoop install argo kube
 kubectl get pods -n argocd
 argo submit -n argo --watch https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/hello-world.yaml
-TODO: store to chibifire digital ocean spaces
 ```
