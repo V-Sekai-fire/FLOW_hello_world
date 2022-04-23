@@ -1,0 +1,33 @@
+metadata:
+  name: workflow
+  namespace: argo
+  labels:
+    example: 'true'
+spec:
+  dependencies:
+    - name: dependency-1
+      eventSourceName: webhook
+      eventName: hello
+  triggers:
+    - template:
+        name: workflow-trigger-1
+        k8s:
+          group: argoproj.io
+          version: v1alpha1
+          resource: workflows
+          operation: create
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: Workflow
+              metadata:
+                generateName: workflow-from-sensor-
+              spec:
+                entrypoint: main
+                templates:
+                  - name: main
+                    container:
+                      image: 'argoproj/argosay:v2'
+    - template:
+        name: log-1
+        log: {}
