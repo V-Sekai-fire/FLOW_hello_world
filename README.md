@@ -19,8 +19,4 @@ kubectl -n argo port-forward deployment/argo-server 12000:12000
 kubectl -n argo-events edit service webhook-eventsource-svc # change to nodeport
 kubectl -n argo-events port-forward service/webhook-eventsource-svc 12000:12000
 curl localhost:12000/hello
-# https://docs.rancherdesktop.io/how-to-guides/setup-NGINX-Ingress-Controller
-# Uncheck Enable Traefik from the Kubernetes Settings page to disable Traefik. You may need to exit and restart Rancher Desktop for the change to take effect.
-# Deploy the NGINX ingress controller via helm or kubectl.
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.2/deploy/static/provi
 ```
