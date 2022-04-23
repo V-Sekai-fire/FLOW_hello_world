@@ -13,5 +13,7 @@ kubectl get pods -n argocd
 argo submit -n argo --watch https://raw.githubusercontent.com/argoproj/argo-workflows/stable/examples/hello-world.yaml
 kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/install-validating-webhook.yaml
 kubectl create ns argo-events
-kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/eventbus/native.yaml
+kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/event-sources/webhook.yaml
+kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/sensors/webhook.yaml
+kubectl -n argo port-forward deployment/argo-server 12000:12000
 ```
